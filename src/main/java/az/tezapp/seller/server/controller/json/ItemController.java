@@ -36,7 +36,8 @@ public class ItemController {
     @RequestMapping(value = "/own", method = RequestMethod.GET)
     public List<Item> getAllOwn(Authentication authentication) {
         /*
-         * User currentUser = (User)authentication.getPrincipal(); return itemRepository.findByAccountIn(currentUser.getAccounts());
+         * User currentUser = (User)authentication.getPrincipal(); 
+         * return itemRepository.findByAccountIn(currentUser.getAccounts());
          */
         return null;
     }

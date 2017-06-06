@@ -55,9 +55,11 @@ public class ItemControllerTest extends BaseControllerTest {
         testItem.setDescription("test item");
         testItem.setPrice(3f);
         String response = mvc
-                .perform(post("/items").with(httpBasic("admin", "admin123")).contentType(APPLICATION_JSON_UTF8)
+                .perform(post("/items").with(httpBasic("admin", "admin123"))
+                        .contentType(APPLICATION_JSON_UTF8)
                         .content(objectToJsonString(testItem)))
-                .andExpect(status().isOk()).andExpect(content().contentType(APPLICATION_JSON_UTF8)).andReturn()
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(APPLICATION_JSON_UTF8)).andReturn()
                 .getResponse().getContentAsString();
         item = itemRepository.findOne(Long.parseLong(response));
         assertNotNull(item);
