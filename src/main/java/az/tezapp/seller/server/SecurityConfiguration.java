@@ -16,18 +16,17 @@ import az.tezapp.seller.server.service.impl.DbAuthenticationProvider;
 @Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-	@Autowired
-	private DbAuthenticationProvider dbAuthenticationProvider;
-	
-	@Override
-	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.authenticationProvider(dbAuthenticationProvider);		
-	}
-	
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		http.httpBasic().and().csrf().disable();
-	}
-	
-	
+    @Autowired
+    private DbAuthenticationProvider dbAuthenticationProvider;
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.authenticationProvider(dbAuthenticationProvider);
+    }
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.httpBasic().and().csrf().disable();
+    }
+
 }

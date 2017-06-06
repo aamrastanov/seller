@@ -9,18 +9,18 @@ import az.tezapp.seller.server.exception.ControllerLogicException;
 import az.tezapp.seller.server.manager.LoggerManager;
 
 @ControllerAdvice
-public class RestAdvisor {	
-	
-	@ExceptionHandler	
-	public void handleException(Exception e) throws Exception{		
-		LoggerManager.error(e);
-		throw e;
-	}
-	
-	@ExceptionHandler(ControllerLogicException.class)
-	public ResponseEntity<LogicErrorResponse> hadleControllerException(ControllerLogicException e){
-		LoggerManager.error(e);
-		LogicErrorResponse errorResponse = new LogicErrorResponse(e.getErrorCode(), e.getMessage());
-		return new ResponseEntity<LogicErrorResponse>(errorResponse, HttpStatus.UNPROCESSABLE_ENTITY);
-	}
+public class RestAdvisor {
+
+    @ExceptionHandler
+    public void handleException(Exception e) throws Exception {
+        LoggerManager.error(e);
+        throw e;
+    }
+
+    @ExceptionHandler(ControllerLogicException.class)
+    public ResponseEntity<LogicErrorResponse> hadleControllerException(ControllerLogicException e) {
+        LoggerManager.error(e);
+        LogicErrorResponse errorResponse = new LogicErrorResponse(e.getErrorCode(), e.getMessage());
+        return new ResponseEntity<LogicErrorResponse>(errorResponse, HttpStatus.UNPROCESSABLE_ENTITY);
+    }
 }

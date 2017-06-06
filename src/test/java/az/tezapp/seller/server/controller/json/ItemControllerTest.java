@@ -26,46 +26,43 @@ import az.tezapp.seller.server.controller.BaseControllerTest;
 import az.tezapp.seller.server.domain.Item;
 import az.tezapp.seller.server.domain.repository.ItemRepository;
 
-@RunWith(SpringJUnit4ClassRunner.class) 
+@RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = Application.class)
 @WebAppConfiguration
-@IntegrationTest({"server.port:0", "management.port=0"})
-public class ItemControllerTest extends BaseControllerTest{
-	
-	@Autowired
-	private ItemRepository itemRepository;
-	
-	private Item item;
-	
-	@Before
-	public void before(){
-		initMockMvc();
-	}
-	
-	@After
-	public void after(){
-		if (item != null){
-			itemRepository.delete(item);
-		}
-	}
-	
-	@Test
-	public void addItem() throws UnsupportedEncodingException, JsonProcessingException, Exception{		
-		Item testItem = new Item();
-		testItem.setDescription("test item");
-		testItem.setPrice(3f);		
-		String response = mvc
-    		.perform(post("/items").with(httpBasic("admin", "admin123"))        				        				
-				.contentType(APPLICATION_JSON_UTF8)
-				.content(objectToJsonString(testItem))    				
-    		)
-	    	.andExpect(status().isOk())
-			.andExpect(content().contentType(APPLICATION_JSON_UTF8))
-			.andReturn().getResponse().getContentAsString();
-		item = itemRepository.findOne(Long.parseLong(response));
-		assertNotNull(item);
-		assertEquals(item.getPrice(), testItem.getPrice());
-		assertEquals(item.getDescription(), testItem.getDescription());		
-	}
-	
+@IntegrationTest({ "server.port:0", "management.port=0" })
+public class ItemControllerTest extends BaseControllerTest {
+
+    @Autowired
+    private ItemRepository itemRepository;
+
+    private Item item;
+
+    @Before
+    public void before() {
+        initMockMvc();
+    }
+
+    @After
+    public void after() {
+        if (item != null) {
+            itemRepository.delete(item);
+        }
+    }
+
+    @Test
+    public void addItem() throws UnsupportedEncodingException, JsonProcessingException, Exception {
+        Item testItem = new Item();
+        testItem.setDescription("test item");
+        testItem.setPrice(3f);
+        String response = mvc
+                .perform(post("/items").with(httpBasic("admin", "admin123")).contentType(APPLICATION_JSON_UTF8)
+                        .content(objectToJsonString(testItem)))
+                .andExpect(status().isOk()).andExpect(content().contentType(APPLICATION_JSON_UTF8)).andReturn()
+                .getResponse().getContentAsString();
+        item = itemRepository.findOne(Long.parseLong(response));
+        assertNotNull(item);
+        assertEquals(item.getPrice(), testItem.getPrice());
+        assertEquals(item.getDescription(), testItem.getDescription());
+    }
+
 }

@@ -5,6 +5,6 @@ import az.tezapp.seller.server.model.dto.UserDto;
 
 public interface UserAccountService {
 
-	UserDto saveUserAccount(Account account);
-	
+    UserDto saveUserAccount(Account account);
+
 }

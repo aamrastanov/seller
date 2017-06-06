@@ -16,33 +16,35 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class BaseControllerTest {
-	
-	@Value("${local.server.port}")
-	protected int port;
-	
-	protected MediaType TEXT_PLAIN_UTF8 = new MediaType(MediaType.TEXT_PLAIN.getType(), MediaType.TEXT_PLAIN.getSubtype(), Charset.forName("utf8"));
-	
-	protected MediaType APPLICATION_JSON_UTF8 = new MediaType(MediaType.APPLICATION_JSON.getType(), MediaType.APPLICATION_JSON.getSubtype(), Charset.forName("utf8"));
-	
-	@Autowired
-	protected WebApplicationContext context;
-	
-	@Autowired
-	protected Filter springSecurityFilterChain;
-	
-	protected MockMvc mvc;
-	
-	private ObjectMapper objectMapper = new ObjectMapper();
-	
-	protected void initMockMvc(){
-		mvc = MockMvcBuilders.webAppContextSetup(context).addFilters(springSecurityFilterChain).build();
-	}
-	
-	protected String objectToJsonString(Object object) throws JsonProcessingException {
-		return objectMapper.writeValueAsString(object);
-	}
 
-	protected <T> T jsonStringToObject(String content, Class<T> valueType) throws IOException {		
-		return objectMapper.readValue(content, valueType);
-	}
+    @Value("${local.server.port}")
+    protected int port;
+
+    protected MediaType TEXT_PLAIN_UTF8 = new MediaType(MediaType.TEXT_PLAIN.getType(),
+            MediaType.TEXT_PLAIN.getSubtype(), Charset.forName("utf8"));
+
+    protected MediaType APPLICATION_JSON_UTF8 = new MediaType(MediaType.APPLICATION_JSON.getType(),
+            MediaType.APPLICATION_JSON.getSubtype(), Charset.forName("utf8"));
+
+    @Autowired
+    protected WebApplicationContext context;
+
+    @Autowired
+    protected Filter springSecurityFilterChain;
+
+    protected MockMvc mvc;
+
+    private ObjectMapper objectMapper = new ObjectMapper();
+
+    protected void initMockMvc() {
+        mvc = MockMvcBuilders.webAppContextSetup(context).addFilters(springSecurityFilterChain).build();
+    }
+
+    protected String objectToJsonString(Object object) throws JsonProcessingException {
+        return objectMapper.writeValueAsString(object);
+    }
+
+    protected <T> T jsonStringToObject(String content, Class<T> valueType) throws IOException {
+        return objectMapper.readValue(content, valueType);
+    }
 }

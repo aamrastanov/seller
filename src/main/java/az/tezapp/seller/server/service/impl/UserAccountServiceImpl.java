@@ -17,43 +17,41 @@ import az.tezapp.seller.server.service.UserAccountService;
 @Component
 public class UserAccountServiceImpl implements UserAccountService {
 
-	@Autowired
-	private UserRepository userRepository;
-	
-	@Autowired
-	private AccountRepository accountRepository;
-	
-	@Autowired
-	private CacheManager cacheManager;
-		
-	
-	@Override
-	public UserDto saveUserAccount(Account account) {		
-		String userName = getUserName(account);
-		User user = userRepository.findFirstByUsername(userName);
-		if (user == null){
-			user = new User();
-			user.setUsername(userName);
-			user.setPassword(generatePassword());			
-			userRepository.save(user);		
-			account.setUser(user);
-			accountRepository.save(account);
-		}
-		else{
-			cacheManager.getCache(Application.userCacheName).evict(user.getUsername());
-			Account entityAcount = user.getAccount();
-			entityAcount.update(account);
-			accountRepository.save(entityAcount);
-		}		
-		return new UserDto(user);
-	}
-	
-	private String getUserName(Account account){
-		return account.getAccountType().toString() + "_" + account.getEmail();
-	}
-	
-	private String generatePassword(){
-		return UUID.randomUUID().toString();
-	}
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private AccountRepository accountRepository;
+
+    @Autowired
+    private CacheManager cacheManager;
+
+    @Override
+    public UserDto saveUserAccount(Account account) {
+        String userName = getUserName(account);
+        User user = userRepository.findFirstByUsername(userName);
+        if (user == null) {
+            user = new User();
+            user.setUsername(userName);
+            user.setPassword(generatePassword());
+            userRepository.save(user);
+            account.setUser(user);
+            accountRepository.save(account);
+        } else {
+            cacheManager.getCache(Application.userCacheName).evict(user.getUsername());
+            Account entityAcount = user.getAccount();
+            entityAcount.update(account);
+            accountRepository.save(entityAcount);
+        }
+        return new UserDto(user);
+    }
+
+    private String getUserName(Account account) {
+        return account.getAccountType().toString() + "_" + account.getEmail();
+    }
+
+    private String generatePassword() {
+        return UUID.randomUUID().toString();
+    }
 
 }

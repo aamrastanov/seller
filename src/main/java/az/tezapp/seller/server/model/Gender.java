@@ -1,3 +1,5 @@
 package az.tezapp.seller.server.model;
 
-public enum Gender {F, M}
+public enum Gender {
+    F, M
+}

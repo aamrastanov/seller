@@ -14,15 +14,15 @@ import az.tezapp.seller.server.service.UserAccountService;
 
 @RestController
 @RequestMapping(value = "/users")
-public class UserController {	
-	
-	@Autowired
-	private UserAccountService userService;
-		
-	@RequestMapping(method = RequestMethod.POST)
-	public UserDto regUser(@RequestBody Account account) throws KeyAccessDeniedException{					
-		account.setEmail(SecurityManager.getValid(account.getEmail()));
-		UserDto userDto = userService.saveUserAccount(account);
-		return userDto;
-	}
+public class UserController {
+
+    @Autowired
+    private UserAccountService userService;
+
+    @RequestMapping(method = RequestMethod.POST)
+    public UserDto regUser(@RequestBody Account account) throws KeyAccessDeniedException {
+        account.setEmail(SecurityManager.getValid(account.getEmail()));
+        UserDto userDto = userService.saveUserAccount(account);
+        return userDto;
+    }
 }

@@ -8,7 +8,7 @@ import az.tezapp.seller.server.domain.Item;
 import az.tezapp.seller.server.domain.User;
 
 public interface ItemRepository extends CrudRepository<Item, Long> {
-	
-	List<Item> findByUser(User user);
+
+    List<Item> findByUser(User user);
 
 }

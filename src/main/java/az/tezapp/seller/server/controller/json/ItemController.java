@@ -18,26 +18,27 @@ import az.tezapp.seller.server.domain.repository.ItemRepository;
 @RestController
 @RequestMapping(value = "/items")
 public class ItemController {
-	
-	@Autowired
-	private ItemRepository itemRepository;
 
-	@PreAuthorize("isAuthenticated()")
-	@RequestMapping(method = {RequestMethod.POST, RequestMethod.PUT})
-	public Long addOrUpdate(@RequestBody Item item,  Authentication authentication){
-		User currentUser = (User)authentication.getPrincipal();		
-		item.setUser(currentUser);
-		item.setCreateDate(new Date());
-		itemRepository.save(item);
-		return item.getId();			
-	}
-	
-	@PreAuthorize("isAuthenticated()")
-	@RequestMapping(value = "/own", method = RequestMethod.GET)
-	public List<Item> getAllOwn(Authentication authentication){			
-		/*User currentUser = (User)authentication.getPrincipal();
-		return itemRepository.findByAccountIn(currentUser.getAccounts());*/
-		return null;
-	}
-	
+    @Autowired
+    private ItemRepository itemRepository;
+
+    @PreAuthorize("isAuthenticated()")
+    @RequestMapping(method = { RequestMethod.POST, RequestMethod.PUT })
+    public Long addOrUpdate(@RequestBody Item item, Authentication authentication) {
+        User currentUser = (User) authentication.getPrincipal();
+        item.setUser(currentUser);
+        item.setCreateDate(new Date());
+        itemRepository.save(item);
+        return item.getId();
+    }
+
+    @PreAuthorize("isAuthenticated()")
+    @RequestMapping(value = "/own", method = RequestMethod.GET)
+    public List<Item> getAllOwn(Authentication authentication) {
+        /*
+         * User currentUser = (User)authentication.getPrincipal(); return itemRepository.findByAccountIn(currentUser.getAccounts());
+         */
+        return null;
+    }
+
 }
