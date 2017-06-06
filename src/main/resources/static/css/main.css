@@ -1,0 +1,321 @@
+﻿/*************************
+*******Typography******
+**************************/
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,400italic,500,700,100);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,300,600,700);
+@import url(http://fonts.googleapis.com/css?family=Abel);
+
+body {font-family:'Roboto',sans-serif;background:white; padding:0; margin:0;}
+ul li {padding:0;margin:0;list-style:none;}
+ul {padding:0;margin:0;}
+a {text-decoration:none;color: #676767;}
+a:hover{outline:none;text-decoration:none;}
+a:focus {outline:none;outline-offset:0;}
+h1, h2, h3, h4, h5, h6 {font-family:'Roboto',sans-serif;}
+div, table, a, input, ul, li {box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;}
+.clear{clear:both;}
+.left{float:left;}
+.right{float:right;}
+
+#header {
+    width: 100%;
+    background-color: #f7f7f7;
+    -webkit-box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    position: fixed;
+    z-index: 2000;
+}
+    #header .content {
+        margin: 0 auto;
+        width: 1180px;
+        padding-top: 1px;
+    }
+        #header .content #logo {
+            float: left;
+            padding: 5px;
+            margin-top: 2px;
+        }
+        #header .content #logo a img {
+            width: 110px;
+            object-fit: cover;
+        }
+        #header .content ul li a {
+            float: left;
+            height: 100%;
+            font-size: 18px;
+            padding: 20px 10px;
+            margin-left: 15px;
+            color: #3a3a3a;
+        }
+        #header .content ul li a:hover {
+            color: #6a6a6a !important;
+        }
+#content {
+    margin: 0 auto;
+    top: 90px;
+    position: relative;
+    width: 1180px;
+    z-index: 1999;
+}
+    .left-side {
+        width: 18%;
+        position: fixed;
+    }
+        /*User page styles*/
+        .left-side .ava {
+            float: left;
+            width: 100%;
+            overflow: hidden;
+            border-top-left-radius: 2px;
+            border-top-right-radius: 2px;
+        }
+        .left-side .user-info-zone {
+            float: left;
+            -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.16), 0 1px 2px 0 rgba(0, 0, 0, 0.12);
+            box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.16), 0 1px 2px 0 rgba(0, 0, 0, 0.12);
+            width: 100%;
+            padding: 10px 8px;
+            border-bottom-left-radius: 2px;
+            border-bottom-right-radius: 2px;
+        }
+
+        /*Main page styles*/
+        .left-side .search input {
+            width: 104%;
+            margin-left: -1%;
+            padding: 10px 25px 10px 10px;
+            background-image: url(../images/icons/search.png);
+            background-repeat: no-repeat;
+            background-position: 226px;
+            background-color: #fefefe;
+            border: none;
+            letter-spacing: 1px;
+            -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.16), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.16), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+            border-top-left-radius: 2px;
+            border-top-right-radius: 2px;
+            outline: none;
+        }
+        .left-side #tags {
+            float: left;
+            height: 380px;
+            overflow-y: auto;
+            width: 100%;
+            padding: 5px;
+            -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.16), 0 1px 2px 0 rgba(0, 0, 0, 0.12);
+            box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.16), 0 1px 2px 0 rgba(0, 0, 0, 0.12);
+            border-bottom-left-radius: 2px;
+            border-bottom-right-radius: 2px;
+        }
+        .left-side #tags ul {
+            float: left;
+            width: 100%;
+        }
+            #tags ul li {
+                cursor:pointer;
+                color:#4a4a4a;
+                font-size:13px;
+                padding:5px 7px;
+                margin-top: 1px;
+            }
+                #tags ul li.selected {
+                    background-color: #aee7ff !important;
+                }
+                #tags ul li.selected:hover .count {
+                    background-color: #def6ff !important;
+                }
+                #tags ul li:hover {
+                    background-color:#efefef;
+                }
+                #tags ul li:hover .count {
+                    background-color: #fff;
+                }
+
+                #tags ul li .text {
+                    float:left;
+                    margin-top: 3px;
+                }
+                #tags ul li .count {
+                    float:right;
+                    background:#fff;
+                    border-radius:10px;
+                    padding:3px 7px;
+                }
+        .left-side .filter {
+            float: left;
+            width: 100%;
+            margin: 15px 0 5px 0;
+            display: none;
+            -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.16), 0 1px 2px 0 rgba(0, 0, 0, 0.12);
+            box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.16), 0 1px 2px 0 rgba(0, 0, 0, 0.12);
+            border-radius: 2px;
+        }
+            .left-side .filter .title {
+                display: inline-block;
+                width: 100%;
+                padding: 10px;
+                background-color: #efefef;
+            }
+            .left-side .filter .title .left-part {
+                float: left;
+                font-size: 14px;
+                font-weight: bold;
+            }
+            .left-side .filter .title .right-part {
+                float: right;
+                font-size: 13px;
+                color: #2B78C1;
+                cursor: pointer;
+                margin-top: 2px;
+                width: 16px;
+                height: 16px;
+                background-image: url(../images/icons/close.png);
+            }
+            .left-side .filter .title .right-part:hover {
+                text-decoration: underline;
+            }
+        .left-side .filter ul {
+            float: left;
+            margin: 7px 0 0 0;
+            padding: 3px;
+            width: 100%;
+        }
+            .left-side .filter ul li {
+                float: left;
+                margin: 0 3px 2px 0;
+                padding: 0 2px 2px 4px;
+                border-radius: 4px;
+                background-color: #efefef;
+            }
+            .left-side .filter ul li .content {
+                float: left;
+                font-size: 14px;
+                color: #4a4a4a;
+                vertical-align: middle;
+                margin-top:2px;
+            }
+            .left-side .filter ul li .close {
+                float: left;
+                width: 16px;
+                height: 16px;
+                margin: 4px 0 0 1px;
+                background-image: url(../images/icons/close.png);
+                opacity: 0.5;
+                cursor: pointer;
+            }
+            .left-side .filter ul li .close:hover {
+                opacity: 0.8;
+            }
+    .right-side {
+        float: right;
+        width: 80%;
+    }
+        .right-side .content {
+            float: left;
+            width: 100%;
+            margin: 0 0 0 5px;
+        }
+            .right-side .content ul {
+                margin: 0;
+                float: left;
+            }
+            .right-side .content ul li {
+                margin: 0 0 18px 18px;
+                padding: 0;
+                width: 290px;
+                height: 290px;
+                list-style-type:none;
+                float: left;
+                position: relative;
+                overflow: hidden;
+                cursor: pointer;
+                -webkit-box-shadow: 0 3px 5px 1px rgba(0, 0, 0, 0.16), 0 1px 2px 0 rgba(0, 0, 0, 0.12);
+                box-shadow: 0 3px 5px 1px rgba(0, 0, 0, 0.16), 0 1px 2px 0 rgba(0, 0, 0, 0.12);
+                border-radius: 2px;
+            }
+            .right-side .content ul li .item-main-photo {
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+            }
+            .right-side .content ul li .label {
+                top: 0;
+                left: 0;
+                position: absolute;
+                padding: 5px;
+                background-color: #fff98b;
+                color: #4a4a4a;
+                font-size: 14px;
+            }
+            .right-side .content ul li .label-new {
+                top: 0;
+                right: 0;
+                position: absolute;
+                width: 50px;
+                height: 50px;
+                object-fit: cover;
+            }
+            .right-side .content ul li .overlay {
+                position: absolute;
+                top: 290px;
+                left: 0;
+                width: 290px;
+                background-color: #343434;
+                opacity: 0.9;
+                overflow: hidden;
+            }
+                .right-side .content ul li .overlay .author {
+                    width: 100%;
+                    padding: 5px;
+                    float: left;
+                }
+                .right-side .content ul li .overlay .author .ava {
+                    float: left;
+                    width: 30px;
+                    height: 30px;
+                    object-fit: cover;
+                    border-radius: 50%;
+                    overflow: hidden;
+                }
+                    .right-side .content ul li .overlay .author .ava img {
+                        object-fit: cover;
+                        width: 100%;
+                        height: 100%;
+                    }
+                .right-side .content ul li .overlay .author .name {
+                    float: left;
+                    font-size: 14px;
+                    color: #fff;
+                    margin: 2px 0 0 6px;
+                }
+                .right-side .content ul li .overlay .author .name:hover {
+                    color: #aee7ff;
+                }
+                .right-side .content ul li .overlay .phone {
+                    float: left;
+                    color: #c3c3c3;
+                    margin: -15px 0 0 40px;
+                }
+                .right-side .content ul li .overlay .phone span{
+                    float: left;
+                    font-size: 13px;
+                    margin: 0 0 0 4px;
+                }
+                .right-side .content ul li .overlay .phone img {
+                    float: left;
+                    opacity: 0.8;
+                    width: 15px;
+                    height: 15px;
+                    object-fit: cover;
+                }
+                .right-side .content ul li .overlay .description {
+                    float: left;
+                    font-size: 13px;
+                    color: #d9d9d9;
+                    margin: 3px 0 8px 41px;
+                    max-height: 100px;
+                    overflow-y: auto;
+                }
+                .right-side .content ul li .overlay .description p {
+                    margin: 0;
+                }

@@ -1,0 +1,38 @@
+.user-info-zone {
+}
+    .user-info-zone .name {
+        font-size: 18px;
+        color: #4a4a4a;
+        font-weight: bold;
+    }
+    .user-info-zone .name img {
+        float: left;
+        opacity: 0.6;
+        width: 17px;
+        height: 17px;
+    }
+    .user-info-zone .name span {
+        float: left;
+        margin: -1px 0 0 4px;
+    }
+    .user-info-zone .name:hover {
+        color: #2B78C1;
+    }
+    .user-info-zone .name:hover img {
+        opacity: 1;
+    }
+    .user-info-zone .phone {
+        color: #6a6a6a;
+        margin-top: 6px;
+    }
+    .user-info-zone .phone span{
+        float: left;
+        margin: -1px 0 0 4px;
+    }
+    .user-info-zone .phone img {
+        float: left;
+        opacity: 0.5;
+        width: 17px;
+        height: 17px;
+        object-fit: cover;
+    }
