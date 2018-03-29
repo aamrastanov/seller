@@ -1,4 +1,4 @@
-package az.tezapp.seller.server.controller.json;
+package az.tezapp.seller.server.controller.rest;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -14,22 +14,19 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.IntegrationTest;
-import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 
-import az.tezapp.seller.server.Application;
 import az.tezapp.seller.server.controller.BaseControllerTest;
 import az.tezapp.seller.server.domain.Item;
 import az.tezapp.seller.server.domain.repository.ItemRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = Application.class)
+@SpringBootConfiguration
 @WebAppConfiguration
-@IntegrationTest({ "server.port:0", "management.port=0" })
 public class ItemControllerTest extends BaseControllerTest {
 
     @Autowired

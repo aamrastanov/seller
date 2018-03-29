@@ -1,4 +1,4 @@
-package az.tezapp.seller.server.controller.json;
+package az.tezapp.seller.server.controller.rest;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -16,10 +16,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.IntegrationTest;
-import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.util.StringUtils;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -36,9 +35,7 @@ import az.tezapp.seller.server.model.Gender;
 import az.tezapp.seller.server.model.dto.UserDto;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = Application.class)
-@WebAppConfiguration
-@IntegrationTest({ "server.port:0", "management.port=0" })
+@SpringBootTest(classes = {Application.class}, webEnvironment = WebEnvironment.RANDOM_PORT, properties="")
 public class UserControllerTest extends BaseControllerTest {
 
     @Autowired
@@ -109,7 +106,7 @@ public class UserControllerTest extends BaseControllerTest {
         account.setFirstName("test");
         account.setLastName("testov");
         account.setEmail("test@test.ru");
-        account.setAccountType(AccountType.google);
+        account.setAccountType(AccountType.GOOGLE);
         account.setUrl("example.com");
         account.setUser(user);
         accountRepository.save(account);
@@ -118,8 +115,8 @@ public class UserControllerTest extends BaseControllerTest {
         testAccount.setFirstName("test2");
         testAccount.setLastName("testov2");
         testAccount.setUrl("example2.com");
-        testAccount.setAccountType(AccountType.google);
-        testAccount.setEmail(AESAlghorithm.encrypt("electrikatest@test.ru", "4#lk09_fg5s345k7"));
+        testAccount.setAccountType(AccountType.GOOGLE);
+        testAccount.setEmail(AESAlghorithm.encrypt("my secret phrase", "my secret key"));
 
         String content = mvc
                 .perform(post("/users").contentType(APPLICATION_JSON_UTF8).content(objectToJsonString(testAccount)))

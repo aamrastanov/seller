@@ -31,7 +31,7 @@ public class Application {
         if (user == null) {
             user = new User();
             user.setUsername("admin");
-            user.setPassword("admin123");
+            user.setPassword("admin");
             userRepository.save(user);
         }
     }

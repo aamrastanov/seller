@@ -1,4 +1,4 @@
-package az.tezapp.seller.server.controller.json;
+package az.tezapp.seller.server.controller.rest;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -16,13 +16,11 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.IntegrationTest;
-import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
-import az.tezapp.seller.server.Application;
 import az.tezapp.seller.server.controller.BaseControllerTest;
 import az.tezapp.seller.server.domain.Item;
 import az.tezapp.seller.server.domain.ItemImage;
@@ -33,9 +31,8 @@ import az.tezapp.seller.server.exception.ControllerLogicException;
 import az.tezapp.seller.server.manager.ResourcesManager;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = Application.class)
+@SpringBootConfiguration
 @WebAppConfiguration
-@IntegrationTest({ "server.port:0", "management.port=0" })
 public class ItemImageControllerTest extends BaseControllerTest {
 
     @Autowired

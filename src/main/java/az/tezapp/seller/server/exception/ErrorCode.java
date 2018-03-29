@@ -2,7 +2,7 @@ package az.tezapp.seller.server.exception;
 
 public enum ErrorCode {
 
-    KeyAccessDenied(10), AccessDenied(11), IllegalField(12), OtherError(99);
+    KEY_ACCESS_DENIED(10), ACCESS_DENIED(11), ILLEGAL_FIELD(12), OTHER_ERROR(99);
 
     private int value;
 

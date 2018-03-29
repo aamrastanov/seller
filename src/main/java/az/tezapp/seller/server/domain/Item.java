@@ -1,5 +1,6 @@
 package az.tezapp.seller.server.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -19,7 +20,9 @@ import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 @Table(name = "tz1_item")
-public class Item {
+public class Item implements Serializable {
+
+    private static final long serialVersionUID = -2068385989785912660L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

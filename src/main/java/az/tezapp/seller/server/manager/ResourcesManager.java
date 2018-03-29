@@ -17,9 +17,9 @@ public class ResourcesManager {
     @Autowired
     private AppProperties appProperties;
 
-    private static SimpleDateFormat dateFormatter = new SimpleDateFormat("/yyyy/MM/dd/");
+    private static final SimpleDateFormat dateFormatter = new SimpleDateFormat("/yyyy/MM/dd/");
 
-    private static Pattern filePattern = Pattern.compile("\\..{0,5}$");
+    private static final Pattern filePattern = Pattern.compile("\\..{0,5}$");
 
     public String getWebUri(String fileName) {
         return appProperties.getResourcesWebName() + dateFormatter.format(new Date()) + fileName;

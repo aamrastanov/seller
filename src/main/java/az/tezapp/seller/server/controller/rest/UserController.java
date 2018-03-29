@@ -1,4 +1,4 @@
-package az.tezapp.seller.server.controller.json;
+package az.tezapp.seller.server.controller.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;

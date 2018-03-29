@@ -1,4 +1,4 @@
-package az.tezapp.seller.server.controller.json;
+package az.tezapp.seller.server.controller.rest;
 
 import java.util.Date;
 import java.util.List;

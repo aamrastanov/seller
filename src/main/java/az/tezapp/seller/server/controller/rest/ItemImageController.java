@@ -1,4 +1,4 @@
-package az.tezapp.seller.server.controller.json;
+package az.tezapp.seller.server.controller.rest;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -44,11 +44,11 @@ public class ItemImageController {
             Authentication authentication) throws IOException, ControllerLogicException {
         Item item = itemRepository.findOne(itemId);
         if (item == null) {
-            throw new ControllerLogicException(ErrorCode.IllegalField, "Item access error");
+            throw new ControllerLogicException(ErrorCode.ILLEGAL_FIELD, "Item access error");
         }
         User currentUser = (User) authentication.getPrincipal();
         if (!currentUser.equals(item.getUser())) {
-            throw new ControllerLogicException(ErrorCode.AccessDenied, "Item access error");
+            throw new ControllerLogicException(ErrorCode.ACCESS_DENIED, "Item access error");
         }
         if (!file.isEmpty()) {
 
@@ -67,7 +67,7 @@ public class ItemImageController {
             itemImageRepository.save(itemImage);
             return itemImage;
         } else {
-            throw new ControllerLogicException(ErrorCode.IllegalField, "File is empty");
+            throw new ControllerLogicException(ErrorCode.ILLEGAL_FIELD, "File is empty");
         }
     }
 
@@ -77,15 +77,15 @@ public class ItemImageController {
             Authentication authentication) throws ControllerLogicException {
         Item item = itemRepository.findOne(itemId);
         if (item == null) {
-            throw new ControllerLogicException(ErrorCode.IllegalField, "Item access error");
+            throw new ControllerLogicException(ErrorCode.ILLEGAL_FIELD, "Item access error");
         }
         User currentUser = (User) authentication.getPrincipal();
         if (!currentUser.equals(item.getUser())) {
-            throw new ControllerLogicException(ErrorCode.AccessDenied, "Item access error");
+            throw new ControllerLogicException(ErrorCode.ACCESS_DENIED, "Item access error");
         }
         ItemImage itemImage = itemImageRepository.findOne(imageId);
         if (itemImage == null) {
-            throw new ControllerLogicException(ErrorCode.IllegalField, "ItemImage access error");
+            throw new ControllerLogicException(ErrorCode.ILLEGAL_FIELD, "ItemImage access error");
         }
         File file = new File(resourcesManager.getLocalResoucesPath() + itemImage.getFileUri());
         itemImageRepository.delete(itemImage);

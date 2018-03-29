@@ -1,5 +1,6 @@
 package az.tezapp.seller.server.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -16,7 +17,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "tz1_item_image")
-public class ItemImage {
+public class ItemImage implements Serializable {
+
+    private static final long serialVersionUID = 7718753224531810737L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

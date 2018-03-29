@@ -1,5 +1,6 @@
 package az.tezapp.seller.server.domain;
 
+import java.io.Serializable;
 import java.sql.Date;
 
 import javax.persistence.Column;
@@ -21,7 +22,9 @@ import az.tezapp.seller.server.model.Gender;
 
 @Entity
 @Table(name = "tz1_account")
-public class Account {
+public class Account implements Serializable {
+
+    private static final long serialVersionUID = -53436476263522571L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

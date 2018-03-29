@@ -6,8 +6,8 @@ import az.tezapp.seller.server.exception.KeyAccessDeniedException;
 
 public class SecurityManager {
 
-    private static String secret = "electrika";
-    private static String key = "4#lk09_fg5s345k7";
+    private static String secret = "my secret phrase";
+    private static String key = "my secret key";
 
     public static String getValid(String encrupted) throws KeyAccessDeniedException {
         if (StringUtils.isEmpty(encrupted)) {
